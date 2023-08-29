@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{first_name}} {{last_name}}</title>
+    
+<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="icon" href="{{picture}}">
+
+</head>
+<body>
+<div class="container"> 
+	<p>
+	Username: {{ion_username}} <br>
+	Hello {{first_name}}, you have successfully logged into the superfun page.<br>
+	<h2>You look so beautiful today.</h2> <br> <br>
+	<img src={{picture}} alt="Profile Picture" width="1000" height="400"> <br>
+	<form action="updateNickname" method="get">
+	<label for="nname">Nickname:</label>
+    <input type="text" id="nname" name="nname"><br><br>
+     <input type="submit" value="Submit">
+     </form>
+     
+     <div id="nickname">
+         nname
+     </div>
+	You graduate in {{graduation_year}} <br>
+	click <a href="./logout">here</a> to logout.<br>
+	</p>
+	 	<a href="https://user.tjhsst.edu/2023cxu" class="button1">Homepage</a>
+	<script type="text/javascript">
+        document.getElementById("nickname").innerHTML = "Your nickname is {{display_name}}"
+	</script> 
+</body>
+</html>
+

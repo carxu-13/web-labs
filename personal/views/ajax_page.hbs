@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/main.css">
+	<title>The Other Page</title>
+		<link rel="icon" href="./images/flower.png">
+
+</head>
+<body>
+	<h1>Wordle Word Finder</h1>
+	<div>
+        <label for="txt-main">Letters (* for unknown letters [if you know there's an a and an e at the second and the fifth: *a**e]):</label><br>
+        <input type="text" id="txt-main"> <br>
+        <br>
+	</div>
+    <button type="button" onclick="fetchFromServer()" class="button1">Search</button>
+    <br>
+    <div id="possible-words">
+    </div>
+    
+        	<a href="https://user.tjhsst.edu/2023cxu" class="button1">Homepage</a>
+
+   {{!-- ---------------------------------------------------------------------}}
+   {{!--load jquery--}}
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+    {{!--custom page script--}}
+    <script type="text/javascript">
+	
+    function fetchFromServer() {
+        var ajax_params = {
+            'url'     : "https://user.tjhsst.edu/2023cxu/enable",
+            'type'    : "get",
+            'dataType' : "json",
+            'data' : document.getElementById("txt-main").value,
+            'success' : doSomethingWhenYouGetDataBack    // the name of the callback function to call
+        }
+        // run AJAX function 
+        $.ajax( ajax_params )
+    }
+
+    function doSomethingWhenYouGetDataBack(response) {
+        var text = "";
+        var res = Object.values(response)
+        for (let i = 0; i < res.length; i++) {
+            if(i < res.length-1)
+                text += res[i] + ", ";
+            else
+                text += res[i]
+        }
+        document.getElementById('possible-words').innerHTML = text;
+    }
+    
+    </script>
+</body>
+</html>

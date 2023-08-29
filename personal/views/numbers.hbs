@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+    	<link rel="stylesheet" href="css/main.css">
+    	<title>Number Tables</title>
+    		<link rel="icon" href="./images/flower.png">
+
+    </head>
+    <body>
+        <h1>Number Tables</h1>
+        <p>Click any number for some fun facts about them (or edit URL for any positive integer).</p>
+        <div>
+          <ul>
+            {{#each nums}}
+            <li><a href="https://user.tjhsst.edu/2023cxu/numbers/{{this}}">{{this}}</a></li>
+            {{/each}}  
+        </ul>
+    </div>
+    	<a href="https://user.tjhsst.edu/2023cxu" class="button1">Homepage</a>
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    	<link rel="stylesheet" href="css/main.css">
+    	<title>Weather</title>
+    		<link rel="icon" href="./images/flower.png">
+
+    </head>
+    <body>
+        <h2>Weather</h2>
+          <h2><a href="https://user.tjhsst.edu/2023cxu/weather_form">Go back to the weather form</a></h2> <br>
+        <div>
+                This is the forecast: <br>
+                <h3>Location at: {{city}}, {{state}}</h3> <br>
+                <h3>Today's Date: {{date}} </h3> <br>
+         <ul>
+                <br>
+                {{#each weeklyWeather}}
+                <li><span2><strong>{{this.name}}</strong>'s weather:
+                    It will be {{this.temperature}} degrees and the forecast is {{this.shortForecast}} </span2></li> <br>
+                {{/each}}  
+        </ul>
+    </div>
+    	<a href="https://user.tjhsst.edu/2023cxu" class="button1">Homepage</a>
+
+    </body>
+</html>

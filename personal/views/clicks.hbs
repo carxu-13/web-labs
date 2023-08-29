@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cookie Page</title>
+    <link rel="stylesheet" href="css/main.css">
+    	<link rel="icon" href="./images/flower.png">
+
+</head>
+<body>
+	<p>
+	Your current click count is: <span id="clicks">{{clicks}}</span>
+	</p>
+
+	<p>
+	As of the time this page was loaded, you have visited <span id="visits">{{visits}}</span> times.
+	</p>
+    
+    <div>
+    <p id = "para">
+    </p>
+    <form id = "frm">
+        <label for="user">Username:</label>
+        <input type="text" id="user" name="user"><br><br>
+            <button type = "submit" value = "Log In" class="button-60">Log In </button>
+            <button type = "submit" value = "Log out" class="button-60">Log Out </button>
+        
+    </form>
+    </div>
+    {{!-- document.getElementById("frm").value 
+        if(isString(document.getElementById("frm").value))
+            req.session.loggedIn = true //does this edit the actual cookie ; array for no repeats of keys
+        --}}
+    
+    <button type="button" class="button-60" onclick="buttonClickCallback()" id="btn">MORE CLICK COOKIE</button>
+    
+    <div id="plog"></div>
+    <br>
+    <a href="https://user.tjhsst.edu/2023cxu" class="button1">Homepage</a>
+
+    <script type="text/javascript">
+        
+        var COOKIE_NAME = 'clicks';
+        var vis = Number({{visits}})
+        var uname = "{{user}}"
+        //---------------------------------------------
+        //---------------------------------------------
+        function buttonClickCallback() {
+            console.log('button')
+            //read value
+            var num_clicks_string = readCookieFromBrowser(COOKIE_NAME);
+            
+            if(uname === "" && vis > 5) {
+              document.getElementById("btn").disabled = true;
+              document.getElementById("plog").innerHTML = "Please log in first"
+            }
+            else if(!(uname=== "") || vis <=5) {
+                document.getElementById("btn").disabled = false;
+                if(!(uname===""))
+                    document.getElementById("para").innerHTML = "Hello " + uname;
+                num_clicks = Number(num_clicks_string) + 1;
+                document.getElementById('clicks').innerHTML = num_clicks;
+                writeCookieToBrowser(COOKIE_NAME,num_clicks);
+            
+            }
+            
+        }
+
+        function writeCookieToBrowser(cookie_name,cookie_value){
+            // create a string in the cookie format
+            var cookie_string = `${cookie_name}=${cookie_value};path=/`
+            
+            //write the formatted string to the cookie
+            document.cookie = cookie_string;
+        }
+
+        function readCookieFromBrowser(cookie_to_parse_out){
+            // read all cookies from browser
+            var decodedCookie = decodeURIComponent(document.cookie);
+            
+            // convert all cookies into an array
+            var all_cookies_array = decodedCookie.split('; ');
+            
+            // find the index that contains our cookie
+            var specific_cookie_row = all_cookies_array.find( function(arr_elem){
+                return arr_elem.startsWith(`${cookie_to_parse_out}=`);
+            })
+            var desired_cookie_key_val = specific_cookie_row.split('=');
+
+            var desired_cookie_key = desired_cookie_key_val[0]
+            var desired_cookie_val = desired_cookie_key_val[1]
+            
+            return desired_cookie_val;
+            
+        }
+        
+
+
+    </script>
+
+</body>
+</html>

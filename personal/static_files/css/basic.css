@@ -1,0 +1,29 @@
+body {
+  background-color: #FBF8F1;
+  color: #632626; 
+}
+
+p {
+    color: #655D8A;
+}
+
+#span_1 {
+    color: #54BAB9;
+}
+
+a {
+   color:#16F0B3;
+}
+span {
+    color:#E00543;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+span2 {
+    font-size: large;
+}
+
+h2 {
+    color:#33202A;
+}

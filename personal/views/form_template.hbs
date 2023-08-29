@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+    	<link rel="stylesheet" href="css/main.css">
+    	<title>Madlibs</title>
+    		<link rel="icon" href="./images/flower.png">
+
+    </head>
+    <body>
+        <h1>HTML Forms</h1>
+        <form action = "form_render" method = "POST">
+            <label for="first_name">First name:</label><br>
+            <input type = "text" name = "first_name"><br>
+            <label for="last_name">Last name:</label><br>
+            <input type = "text" name = "last_name"><br>
+
+            <label for="adjective">Adjective:</label><br>
+            <input type = "text" name = "adjective"><br>
+            <label for="verb">Verb (-ing):</label><br>
+            <input type = "text" name = "verb"><br>
+        <br>
+        <label for="pic">Choose a Number:</label><br>
+        <select name="pic">
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select><br>  <br> 
+        
+        <label for="colors">Choose a Color:</label><br> 
+        <input type="radio" id="color1" name="color" value="red">
+        <label for="color1">Red</label><br>
+        <input type="radio" id="color2" name="color" value="blue">
+        <label for="color2">Blue</label><br>
+        <input type="radio" id="color3" name="color" value="yellow">
+        <label for="color3">Yellow</label>  
+
+        <br>
+        
+        <button type = "submit" value = "Submit" class="button-60">Submit </button>
+        </form>
+    </body>
+</html>
